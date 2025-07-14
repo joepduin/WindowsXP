@@ -60,17 +60,23 @@ cd portfolio
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please open an issue or pull request to discuss improvements.
+Contributions are welcome! Please open an issue before making major changes.
 
 ---
 
 ## 📜 License
 
-GNU Affero General Public License v3 (AGPLv3)
+GNU General Public License v3.0
 
 ---
 
 ## 👤 Author
 
 Joep
-GitHub: https://github.com/joepduin
+GitHub: [github.com/joepduin](https://github.com/joepduin)
+
+```
+
+Want me to help with setting up the admin panel code or deployment scripts next?
+
+```
