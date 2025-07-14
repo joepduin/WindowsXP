@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="../styles/contact.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<h1>Please Contact Me</h1>
+<form id="contactForm" action="https://beta.joepduin.nl/scripts/sendMail.php" method="POST">
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required placeholder="Your mail address">
+    <br>
+    <label for="title">Subject:</label>
+    <input type="text" id="title" name="title" required placeholder="Subject of your message">
+    <br>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+    <br>
+    <div class="g-recaptcha" data-sitekey="change-secret"></div>
+    <br>
+    <button type="submit">Send</button>
+</form>

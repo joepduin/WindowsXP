@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: url('../images/background.jpg') no-repeat center center/cover; 
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #1e1e1e;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.start-menu {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+  background: #2e2e2e;
+  color: white;
+  border-radius: 5px;
+  width: 250px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.start-menu.active {
+  display: block;
+}
+
+.desktop {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+  align-content: flex-start;
+}
+
+.icon {
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+}
+
+.icon img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 5px;
+}
+
+.window {
+  position: fixed;
+  width: 600px;
+  height: 400px;
+  background-color: white; 
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: none;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  top: 50px;
+  left: 50px;
+  transition: top 0.2s ease-in-out, left 0.2s ease-in-out;
+  user-select: none;
+  overflow: hidden; 
+}
+
+.window.active {
+  display: block;
+}
+
+.window .title-bar {
+  height: 30px;
+  background: #0078d7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  cursor: move;
+  border-radius: 5px 5px 0 0;
+  user-select: none;
+}
+
+.window .content {
+  padding: 10px;
+  overflow-y: auto; 
+  height: calc(100% - 30px);
+  box-sizing: border-box; 
+}
+
+.close-btn {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.welcome-banner {
+  background-color: #f1f1f1; 
+  color: #333;               
+  padding: 10px 20px;
+  text-align: center;
+  position: fixed;
+  top: 10px;                  
+  right: 10px;                 
+  z-index: 9999;
+  display: none;              
+  border-radius: 10px;         
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+  max-width: 300px;           
+  width: 100%;                 
+}
+.welcome-banner button {
+  background-color: #555;     
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.welcome-banner button:hover {
+  background-color: #333;     
+}
