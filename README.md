@@ -34,7 +34,8 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## License
 
-[MIT](LICENSE)
+This project is licensed under the GNU Affero General Public License Version 3 (AGPLv3).  
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
