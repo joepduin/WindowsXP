@@ -12,7 +12,7 @@ Showcases projects with authentic XP-style windows, buttons, and icons for that 
 
 ## Demo
 
-Check out the live demo here: https://joepduin.nl
+Check out the live demo here: https://beta.joepduin.nl
 
 ## Installation
 
