@@ -33,13 +33,28 @@ cd portfolio
 
 2. Open `index.html` in your browser or serve it with a local server.
 
-3. Change the Google reCAPTCHA secrets and the mail config in ./scripts/sendMail.php
+3. Change the Google reCAPTCHA secrets and the mail config in ``./scripts/sendMail.php`` and in ``./windows/contact.html``.
+---
+
+## 📁 Directory Structure
+
+
+```
+/opt/portfolio/
+├── images/       # All image files used in the portfolio
+├── scripts/      # All JavaScript and PHP scripts
+├── styles/       # All CSS stylesheets
+├── windows/      # HTML files for individual XP-style windows
+├── index.html    # Main entry point of the portfolio website
+```
 
 ---
 
 ## ⚠️ Security
 
-* This is a frontend-only portfolio project, so no sensitive data or backend involved.
+- This project includes a PHP backend for the contact form.
+- Make sure your web server is properly configured and secured to avoid exposing sensitive information.
+- Keep your Google reCAPTCHA keys and mail configuration private.
 
 ---
 
