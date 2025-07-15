@@ -3,44 +3,58 @@ body {
   padding: 0;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  background: url('../images/background.jpg') no-repeat center center/cover; 
-}
-
-.taskbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  background: #1e1e1e;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.5);
-}
-
-.start-menu {
-  display: none;
-  position: absolute;
-  bottom: 50px;
-  left: 10px;
-  background: #2e2e2e;
+  background: url('../images/background.jpg') no-repeat center center/cover;
   color: white;
-  border-radius: 5px;
-  width: 250px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.start-menu.active {
-  display: block;
+#boot-screen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: black;
+  color: #0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 24px;
+  z-index: 9999;
+}
+
+.welcome-banner {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
+  display: none;
+}
+.welcome-banner button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+.welcome-banner button:hover {
+  background-color: #333;
 }
 
 .desktop {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 40px);
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
   gap: 20px;
   align-content: flex-start;
 }
@@ -51,18 +65,28 @@ body {
   cursor: pointer;
   color: white;
 }
-
 .icon img {
   width: 64px;
   height: 64px;
   margin-bottom: 5px;
 }
 
+.icon.bin {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+}
+
 .window {
   position: fixed;
   width: 600px;
   height: 400px;
-  background-color: white; 
+  background-color: white;
+  color: black;
   border: 1px solid #000;
   border-radius: 5px;
   display: none;
@@ -70,15 +94,13 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   top: 50px;
   left: 50px;
-  transition: top 0.2s ease-in-out, left 0.2s ease-in-out;
   user-select: none;
-  overflow: hidden; 
+  overflow: hidden;
+  transition: top 0.2s ease-in-out, left 0.2s ease-in-out;
 }
-
 .window.active {
   display: block;
 }
-
 .window .title-bar {
   height: 30px;
   background: #0078d7;
@@ -90,46 +112,131 @@ body {
   cursor: move;
   border-radius: 5px 5px 0 0;
   user-select: none;
+  font-weight: bold;
 }
-
 .window .content {
   padding: 10px;
-  overflow-y: auto; 
+  overflow-y: auto;
   height: calc(100% - 30px);
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  background: white;
+  color: black;
 }
-
 .close-btn {
   cursor: pointer;
   color: white;
   font-weight: bold;
 }
 
-.welcome-banner {
-  background-color: #f1f1f1; 
-  color: #333;               
-  padding: 10px 20px;
-  text-align: center;
+#taskbar {
   position: fixed;
-  top: 10px;                  
-  right: 10px;                 
-  z-index: 9999;
-  display: none;              
-  border-radius: 10px;         
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-  max-width: 300px;           
-  width: 100%;                 
-}
-.welcome-banner button {
-  background-color: #555;     
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-top: 10px;
-  border-radius: 3px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, #0a4ea8, #083d8a);
+  border-top: 1px solid #000080;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  z-index: 1000;
+  font-family: "Tahoma", Geneva, sans-serif;
+  user-select: none;
 }
 
-.welcome-banner button:hover {
-  background-color: #333;     
+#start-button {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, #4caf50 0%, #2e7d32 100%); 
+  border: 1px solid #1b5e20;
+  box-shadow: inset 1px 1px 0 #81c784, inset -1px -1px 0 #145214;
+  width: 90px;
+  height: 28px;
+  margin-right: 5px;
+  cursor: pointer;
+  padding: 0 8px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #145214;
+  border-radius: 3px;
+  user-select: none;
+}
+#start-button:hover {
+  background: linear-gradient(to bottom, #66bb6a 0%, #388e3c 100%);
+}
+
+#start-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  filter: drop-shadow(0 0 1px black);
+}
+
+#start-menu {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  background: #2e2e2e;
+  color: white;
+  border-radius: 5px;
+  width: 180px;
+  padding: 5px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  z-index: 2000;
+  user-select: none;
+}
+#start-menu.active {
+  display: block;
+}
+#start-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#start-menu li {
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#start-menu li:hover {
+  background: #0078d7;
+}
+
+#system-tray {
+  margin-left: auto;
+  width: 150px;
+  height: 28px;
+  background: linear-gradient(to bottom, #4a90e2 0%, #77a7f7 100%);
+  border: 1px solid #316ac5;
+  box-shadow: inset 1px 1px 0 white, inset -1px -1px 0 #224e90;
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 12px;
+  color: white;
+  user-select: none;
+}
+
+.clock {
+  margin-left: auto;
+  margin-right: 6px;
+  padding: 0 6px;
+  background-color: #d4d0c8;
+  color: black;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  box-shadow: inset 1px 1px #808080;
+  border-radius: 2px;
+  min-width: 55px;
+  user-select: none;
 }

@@ -1,78 +1,117 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JoepDuin OS (beta)</title>
-    <link rel="icon" href="images/icon.png" type="image/png">
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JoepDuin OS (beta)</title>
+  <link rel="icon" href="images/icon.png" type="image/png" />
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-    <div id="welcome-banner" class="welcome-banner">
-        <p>This website is still beta!</p> 
-        <p>&copy; 2024 Joep Duin</p>
-        <button onclick="closeBanner()">Close</button>
-    </div>
+   <div id="boot-screen">
+    <p>Booting JoepDuin OS...</p>
+   </div>
 
-    <div class="desktop">
-        <div class="icon" data-window="info">
-            <img src="images/info.png" alt="Info">
-            <p>About Me</p>
-        </div>
-        <div class="icon" data-window="projects">
-            <img src="images/projects.png" alt="Projecten">
-            <p>Projects</p>
-        </div>
-        <div class="icon" data-window="contact">
-            <img src="images/contact.png" alt="Contact">
-            <p>Contact</p>           
-        </div>
-        <div class="icon" data-window="education">
-            <img src="images/education.png" alt="Education">
-            <p>Education</p>
-        </div>
-    </div>
+  <div id="welcome-banner" class="welcome-banner">
+    <p>This website is still beta!</p>
+    <p>&copy; 2024 Joep Duin</p>
+    <button onclick="closeBanner()">Close</button>
+  </div>
 
-    <div id="info" class="window">
-        <div class="title-bar">
-            About Me
-            <span class="close-btn" onclick="closeWindow('info')">X</span>
-        </div>
-        <div class="content">
-            <object type="text/html" data="windows/info.html" width="100%" height="100%"></object>
-        </div>
+  <div class="desktop">
+    <div class="icon" data-window="info">
+      <img src="images/info.png" alt="Info" />
+      <p>About Me</p>
     </div>
-
-    <div id="projects" class="window">
-        <div class="title-bar">
-            Projects
-            <span class="close-btn" onclick="closeWindow('projects')">X</span>
-        </div>
-        <div class="content">
-            <object type="text/html" data="windows/projects.html" width="100%" height="100%"></object>
-        </div>
+    <div class="icon" data-window="projects">
+      <img src="images/projects.png" alt="Projecten" />
+      <p>Projects</p>
     </div>
-
-    <div id="contact" class="window">
-        <div class="title-bar">
-            Contact
-            <span class="close-btn" onclick="closeWindow('contact')">X</span>
-        </div>
-        <div class="content">
-            <object type="text/html" data="windows/contact.html" width="100%" height="100%"></object>
-        </div>
+    <div class="icon" data-window="contact">
+      <img src="images/contact.png" alt="Contact" />
+      <p>Contact</p>
     </div>
-
-    <div id="education" class="window">
-        <div class="title-bar">
-            Education
-            <span class="close-btn" onclick="closeWindow('education')">X</span>
-        </div>
-        <div class="content">
-            <object type="text/html" data="windows/education.html" width="100%" height="100%"></object>
-        </div>
+    <div class="icon" data-window="education">
+      <img src="images/education.png" alt="Education" />
+      <p>Education</p>
     </div>
+    <div class="icon bin" data-window="recyclebin">
+      <img src="images/recyclebin.png" alt="Recyclebin" />
+      <p>Recyclebin</p>
+    </div>
+  </div>
 
-    <script src="scripts/script.js"></script>
+  <div id="info" class="window">
+    <div class="title-bar">
+      About Me
+      <span class="close-btn" onclick="closeWindow('info')">X</span>
+    </div>
+    <div class="content">
+      <object type="text/html" data="windows/info.html" width="100%" height="100%"></object>
+    </div>
+  </div>
+
+  <div id="projects" class="window">
+    <div class="title-bar">
+      Projects
+      <span class="close-btn" onclick="closeWindow('projects')">X</span>
+    </div>
+    <div class="content">
+      <object type="text/html" data="windows/projects.html" width="100%" height="100%"></object>
+    </div>
+  </div>
+
+  <div id="contact" class="window">
+    <div class="title-bar">
+      Contact
+      <span class="close-btn" onclick="closeWindow('contact')">X</span>
+    </div>
+    <div class="content">
+      <object type="text/html" data="windows/contact.html" width="100%" height="100%"></object>
+    </div>
+  </div>
+
+  <div id="education" class="window">
+    <div class="title-bar">
+      Education
+      <span class="close-btn" onclick="closeWindow('education')">X</span>
+    </div>
+    <div class="content">
+      <object type="text/html" data="windows/education.html" width="100%" height="100%"></object>
+    </div>
+  </div>
+
+  <div id="recyclebin" class="window">
+    <div class="title-bar">
+      Recyclebin
+      <span class="close-btn" onclick="closeWindow('recyclebin')">X</span>
+    </div>
+    <div class="content">
+      <object type="text/html" data="windows/recyclebin.html" width="100%" height="100%"></object>
+    </div>
+  </div>
+
+  <div class="taskbar" id="taskbar">
+    <button id="start-button">
+      <img src="images/icon.png" alt="Start" style="height:20px; margin-right:6px" />
+      Start
+    </button>
+
+    <div id="system-tray">
+      <div id="clock"></div>
+    </div>
+  </div>
+
+  <div id="start-menu">
+    <ul>
+      <li data-window="info">About Me</li>
+      <li data-window="projects">Projects</li>
+      <li data-window="contact">Contact</li>
+      <li data-window="education">Education</li>
+      <li data-window="recyclebin">Recyclebin</li>
+    </ul>
+  </div>
+
+  <script src="scripts/script.js"></script>
 </body>
 </html>

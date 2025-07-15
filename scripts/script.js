@@ -1,60 +1,99 @@
-function closeBanner() {
-  const banner = document.getElementById('welcome-banner');
-  banner.style.display = 'none';  
-  localStorage.setItem('hasVisited', 'true'); 
-}
-
-if (!localStorage.getItem('hasVisited')) {
-  const banner = document.getElementById('welcome-banner');
-  banner.style.display = 'block';  
-}
-
-window.onload = function() {
-  const hash = window.location.hash.substring(1);
-  if (hash) {
-      openWindow(hash);
+// Hide boot screen after 2 seconds + play sound
+window.addEventListener('load', () => {
+  const bootScreen = document.getElementById('boot-screen');
+  const bootSound = document.getElementById('boot-sound');
+  if(bootSound) {
+    bootSound.play().catch(() => {}); 
   }
 
-  document.querySelectorAll('.icon').forEach(icon => {
-      icon.addEventListener('click', () => {
-          const windowId = icon.getAttribute('data-window');
-          openWindow(windowId);
-      });
+  setTimeout(() => {
+    bootScreen.style.display = 'none';
+    showWelcomeBanner();
+  }, 2000);
+});
+
+// Show and close welcome banner
+function showWelcomeBanner() {
+  const banner = document.getElementById('welcome-banner');
+  if (!banner) return;
+  banner.style.display = 'block';
+}
+function closeBanner() {
+  const banner = document.getElementById('welcome-banner');
+  if (!banner) return;
+  banner.style.display = 'none';
+}
+
+const startButton = document.getElementById("start-button");
+const startMenu = document.getElementById("start-menu");
+
+startButton.addEventListener("click", () => {
+  startMenu.classList.toggle("active");
+});
+
+// Click outside closes start menu
+document.addEventListener("click", (e) => {
+  if (!startMenu.contains(e.target) && !startButton.contains(e.target)) {
+    startMenu.classList.remove("active");
+  }
+});
+
+
+// Open windows via desktop icons
+document.querySelectorAll('.icon').forEach(icon => {
+  icon.addEventListener('click', () => {
+    const winId = icon.getAttribute('data-window');
+    openWindow(winId);
   });
-};
+});
 
+// Open window via start menu
+document.querySelectorAll('#start-menu li').forEach(item => {
+  item.addEventListener('click', () => {
+    const winId = item.getAttribute('data-window');
+    if (winId) {
+      openWindow(winId);
+      startMenu.classList.remove('active');
+    }
+  });
+});
+
+// Window functions
 function openWindow(id) {
-  const windowElement = document.getElementById(id);
-  windowElement.classList.add('active');
-  windowElement.style.zIndex = getHighestZIndex() + 1;
+  const win = document.getElementById(id);
+  if (!win) return;
+  win.classList.add('active');
+  win.style.zIndex = getHighestZIndex() + 1;
 
-  adjustWindowPosition(windowElement);
-  window.location.hash = id;
+  adjustWindowPosition(win);
 }
 
 function closeWindow(id) {
-  document.getElementById(id).classList.remove('active');
-  window.location.hash = '';
+  const win = document.getElementById(id);
+  if (!win) return;
+  win.classList.remove('active');
 }
 
 function getHighestZIndex() {
-  const elements = document.querySelectorAll('.window');
+  const windows = document.querySelectorAll('.window');
   let highest = 0;
-  elements.forEach(el => {
-      const zIndex = parseInt(window.getComputedStyle(el).zIndex, 10);
-      if (!isNaN(zIndex) && zIndex > highest) {
-          highest = zIndex;
-      }
+  windows.forEach(win => {
+    const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
+    if (z > highest) highest = z;
   });
   return highest;
 }
 
+// Keep window inside viewport bounds
 function adjustWindowPosition(windowElement) {
   const maxTop = window.innerHeight - windowElement.offsetHeight - 50;
   const maxLeft = window.innerWidth - windowElement.offsetWidth - 50;
 
   let top = parseInt(windowElement.style.top, 10);
   let left = parseInt(windowElement.style.left, 10);
+
+  if (isNaN(top)) top = 50;
+  if (isNaN(left)) left = 50;
 
   if (top < 0) top = 0;
   if (left < 0) left = 0;
@@ -65,6 +104,7 @@ function adjustWindowPosition(windowElement) {
   windowElement.style.left = `${left}px`;
 }
 
+// Dragging windows
 let isDragging = false;
 let offsetX = 0, offsetY = 0, draggedWindow = null;
 
@@ -106,3 +146,22 @@ document.querySelectorAll('.title-bar').forEach(bar => {
     e.preventDefault();
   });
 });
+
+// Time function
+function updateClock() {
+  const clock = document.getElementById('clock');
+  const now = new Date();
+
+  let hours = now.getHours();
+  const minutes = now.getMinutes();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+
+  const timeString = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+  clock.textContent = timeString;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
