@@ -37,7 +37,7 @@ cd portfolio
 
 2. Open `index.html` in your browser or serve it with a local server.
 
-3. Change the Google reCAPTCHA secrets and the mail config in ``./scripts/sendMail.php`` and in ``./windows/contact.html``.
+3. Change the Google reCAPTCHA secrets and the mail config in ``./config.php`` and in ``./windows/contact.html``.
 ---
 
 ## 📁 Directory Structure
