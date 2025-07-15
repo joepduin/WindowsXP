@@ -50,6 +50,7 @@ cd portfolio
 ├── styles/       # All CSS stylesheets
 ├── windows/      # HTML files for individual XP-style windows
 ├── index.html    # Main entry point of the portfolio website
+├── config.php    # Configuration file
 ```
 
 ---
