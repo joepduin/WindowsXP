@@ -65,7 +65,7 @@ cd portfolio
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please open an issue before making major changes.
+Sent me a mail on portfolio@joepduin.nl if you'd like to collaborate For collaborations, questions, or just to say hi.
 
 ---
 
