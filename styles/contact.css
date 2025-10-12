@@ -2,44 +2,67 @@ form {
   padding: 10px;
   max-width: 300px; 
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  font-family: 'Tahoma', Arial, sans-serif;
 }
 
 h1 {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   margin-bottom: 10px;
+  color: #000;
+  font-family: 'Tahoma', Arial, sans-serif;
 }
 
 label {
-  font-size: 14px;
-  margin-bottom: 5px;
+  font-size: 11px;
+  margin-bottom: 4px;
   display: block;
+  color: #000;
+  font-family: 'Tahoma', Arial, sans-serif;
 }
 
 input, textarea {
   width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc; 
-  border-radius: 3px; 
+  padding: 4px;
+  margin-bottom: 8px;
+  border: 1px solid #7F9DB9;
+  border-radius: 0;
+  background: white;
+  font-family: 'Tahoma', Arial, sans-serif;
+  font-size: 11px;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, textarea:focus {
+  outline: 1px solid #0054E3;
+  border-color: #0054E3;
 }
 
 textarea {
-  height: 80px; 
+  height: 80px;
+  resize: vertical;
 }
 
 button {
   width: 100%;
-  padding: 8px;
-  background-color: #0078d7; 
-  color: white;
-  border: none;
-  border-radius: 3px;
-  font-size: 14px;
+  padding: 6px;
+  background: linear-gradient(to bottom, #ECE9D8 0%, #D6D3CE 100%);
+  color: #000;
+  border: 1px solid #003C74;
+  border-radius: 0;
+  font-size: 11px;
   cursor: pointer;
+  font-family: 'Tahoma', Arial, sans-serif;
+  font-weight: normal;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 button:hover {
-  background-color: #005a99; 
+  background: linear-gradient(to bottom, #F5F3F0 0%, #E0DDD8 100%);
 }
+
+button:active {
+  background: linear-gradient(to bottom, #D6D3CE 0%, #ECE9D8 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
