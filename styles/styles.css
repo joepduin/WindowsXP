@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: Arial, sans-serif;
+  font-family: 'Tahoma', Arial, sans-serif;
   background: url('../images/background.jpg') no-repeat center center/cover;
   color: white;
 }
@@ -51,7 +51,7 @@ body {
 
 .desktop {
   position: relative;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 30px);
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -64,16 +64,29 @@ body {
   text-align: center;
   cursor: pointer;
   color: white;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
 }
 .icon img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 5px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 4px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+.icon p {
+  margin: 0;
+  padding: 2px 4px;
+  text-shadow: 
+    -1px -1px 2px rgba(0, 0, 0, 0.8),
+    1px -1px 2px rgba(0, 0, 0, 0.8),
+    -1px 1px 2px rgba(0, 0, 0, 0.8),
+    1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-weight: normal;
 }
 
 .icon.bin {
   position: fixed;
-  bottom: 50px;
+  bottom: 40px;
   right: 20px;
   width: 80px;
   text-align: center;
@@ -85,13 +98,14 @@ body {
   position: fixed;
   width: 600px;
   height: 400px;
-  background-color: white;
+  background-color: #ECE9D8;
   color: black;
-  border: 1px solid #000;
-  border-radius: 5px;
+  border: 3px solid;
+  border-color: #0054E3 #0054E3 #003EAF #003EAF;
+  border-radius: 8px 8px 0 0;
   display: none;
   z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 4px 4px 8px rgba(0, 0, 0, 0.3);
   top: 50px;
   left: 50px;
   user-select: none;
@@ -102,25 +116,58 @@ body {
   display: block;
 }
 .window .title-bar {
-  height: 30px;
-  background: #0078d7;
+  height: 28px;
+  background: linear-gradient(to right, #0054E3 0%, #3C89E8 50%, #0054E3 100%);
+  background-size: 100% 100%;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
+  padding: 0 4px 0 8px;
   cursor: move;
-  border-radius: 5px 5px 0 0;
+  border-radius: 6px 6px 0 0;
   user-select: none;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
   font-weight: bold;
+  letter-spacing: 0.3px;
 }
 .window .content {
   padding: 10px;
   overflow-y: auto;
-  height: calc(100% - 30px);
+  height: calc(100% - 28px);
   box-sizing: border-box;
   background: white;
   color: black;
+  border-top: 1px solid #003EAF;
+}
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+.title-bar-btn {
+  width: 21px;
+  height: 21px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #D6E5FA 0%, #4583EA 50%, #1254D8 50%, #1941A5 100%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Marlett', 'Webdings', sans-serif;
+  font-size: 11px;
+  color: white;
+  font-weight: bold;
+  user-select: none;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+.title-bar-btn:hover {
+  background: linear-gradient(to bottom, #F0F8FF 0%, #68A3FF 50%, #3A6FDB 50%, #2556C7 100%);
+}
+.title-bar-btn:active {
+  background: linear-gradient(to bottom, #1941A5 0%, #1254D8 50%, #4583EA 50%, #D6E5FA 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 .close-btn {
   cursor: pointer;
@@ -133,13 +180,13 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 40px;
-  background: linear-gradient(to bottom, #0a4ea8, #083d8a);
-  border-top: 1px solid #000080;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  height: 30px;
+  background: linear-gradient(to bottom, #245EDC 0%, #3F8CF3 9%, #245EDC 18%, #245EDC 92%, #1941A5 100%);
+  border-top: 2px solid #1941A5;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
-  padding: 0 5px;
+  padding: 0 4px;
   z-index: 1000;
   font-family: "Tahoma", Geneva, sans-serif;
   user-select: none;
@@ -148,23 +195,35 @@ body {
 #start-button {
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, #4caf50 0%, #2e7d32 100%); 
-  border: 1px solid #1b5e20;
-  box-shadow: inset 1px 1px 0 #81c784, inset -1px -1px 0 #145214;
-  width: 90px;
-  height: 28px;
-  margin-right: 5px;
+  background: linear-gradient(to bottom, #5ECD5E 0%, #4DBF4D 8%, #3FB23F 50%, #36A436 92%, #2D8E2D 100%);
+  border: 1px solid #1D6B1D;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  width: auto;
+  min-width: 90px;
+  height: 24px;
+  margin-right: 6px;
+  margin-left: 2px;
   cursor: pointer;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 0 12px 0 6px;
+  font-size: 11px;
   color: white;
   font-weight: bold;
-  text-shadow: 1px 1px 0 #145214;
-  border-radius: 3px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   user-select: none;
+  font-family: 'Tahoma', sans-serif;
 }
 #start-button:hover {
-  background: linear-gradient(to bottom, #66bb6a 0%, #388e3c 100%);
+  background: linear-gradient(to bottom, #6FDE6F 0%, #5ECF5E 8%, #50C950 50%, #47B747 92%, #3EA03E 100%);
+}
+#start-button:active {
+  background: linear-gradient(to bottom, #2D8E2D 0%, #36A436 8%, #3FB23F 50%, #4DBF4D 92%, #5ECD5E 100%);
+  box-shadow: 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.3),
+    inset -1px -1px 0 rgba(255, 255, 255, 0.2);
 }
 
 #start-icon {
@@ -177,49 +236,65 @@ body {
 #start-menu {
   display: none;
   position: absolute;
-  bottom: 40px;
-  left: 10px;
-  background: #2e2e2e;
-  color: white;
-  border-radius: 5px;
-  width: 180px;
-  padding: 5px 0;
-  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  bottom: 32px;
+  left: 2px;
+  background: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%);
+  color: black;
+  border-radius: 8px 8px 0 0;
+  width: 300px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
   z-index: 2000;
   user-select: none;
+  border: 2px solid #245EDC;
+  border-bottom: none;
+  overflow: hidden;
 }
 #start-menu.active {
   display: block;
 }
+#start-menu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: linear-gradient(to bottom, #5A8FDE 0%, #3F68B3 50%, #26488F 100%);
+  border-right: 1px solid #1941A5;
+}
 #start-menu ul {
   list-style: none;
-  margin: 0;
+  margin: 8px 8px 8px 58px;
   padding: 0;
 }
 #start-menu li {
-  padding: 8px 15px;
+  padding: 4px 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 11px;
+  font-family: 'Tahoma', sans-serif;
+  border-radius: 2px;
+  margin-bottom: 2px;
 }
 #start-menu li:hover {
-  background: #0078d7;
+  background: linear-gradient(to bottom, #D1E9FF 0%, #87BFFF 100%);
+  border: 1px solid #5A9FFF;
+  padding: 3px 7px;
 }
 
 #system-tray {
   margin-left: auto;
-  width: 150px;
-  height: 28px;
-  background: linear-gradient(to bottom, #4a90e2 0%, #77a7f7 100%);
-  border: 1px solid #316ac5;
-  box-shadow: inset 1px 1px 0 white, inset -1px -1px 0 #224e90;
+  height: 22px;
+  background: linear-gradient(to bottom, #0D54D1 0%, #1259E6 50%, #0D4DC0 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 3px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 0 6px;
+  font-size: 11px;
   color: white;
   user-select: none;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Tahoma', sans-serif;
 }
 
 .clock {
