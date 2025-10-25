@@ -26,8 +26,7 @@ It showcases projects with authentic XP-style windows, buttons, and icons for th
 ## 🚀 Getting Started
 
 > Requirements: A web server with PHP support.  
-> If you don’t have a local web server set up, check out my other project **Local Website UI (LWUI)** for easy local hosting:  
-> https://github.com/joepduin/LWUI
+> If you don’t have a local web server set up, check out my other project **Local Website UI (LWUI)** for easy local hosting: https://github.com/joepduin/LWUI
 > 
 1. Clone the repository:  
 ```bash
