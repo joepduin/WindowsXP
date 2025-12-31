@@ -9,7 +9,7 @@
 ## Reporting a Vulnerability
 
 We take the security of this **repository** seriously.  
-If you discover a potential vulnerability, please report it **privately** by emailing [info@joepduin.dev](mailto:info@joep.dev).  
+If you discover a potential vulnerability, please report it **privately** by emailing [info@joep.dev](mailto:info@joep.dev).  
 Do **not** disclose security issues publicly through GitHub issues or other channels.
 
 ### What to Include in Your Report
