@@ -64,7 +64,7 @@ cd portfolio
 
 ## 🤝 Contributing
 
-Sent me a mail on info@joepduin.dev if you'd like to collaborate For collaborations, questions, or just to say hi.
+Sent me a mail on info@joep.dev if you'd like to collaborate For collaborations, questions, or just to say hi.
 
 ---
 
